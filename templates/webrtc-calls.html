@@ -28,14 +28,17 @@
                     'port': 443,
                     'authorization_jwt': `Bearer ${token}`,
                     'debug': true,
+                    'register': false,
                     'domain': '{{ domain }}',
                     'call_ringing': function () {
                         document.getElementById("spinner_" + number).style.display = "block";
                     },
                     'call_connected': function () {
                         document.getElementById("spinner_" + number).style.display = "none";
-
-                    }
+                    },
+                    'call_disconnected': function () {
+                        document.getElementById("footer").style.display = "none";
+                    },
                 };
 
                 engine = new WhistleEngine();
