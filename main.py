@@ -40,6 +40,7 @@ def gen_jwt():
     return jsonify({"token": r1.text})
 
 # Frontend Serving with config from env
+@app.route("/", methods=["GET"])
 @app.route("/webrtc-calls", methods=["GET"])
 def webrtc_calls():
     return render_template('webrtc-calls.html', numbers=PARSED_LUMENCCS_NUMBERS.items(), domain=LUMENCCS_WEBRTC_URL)
